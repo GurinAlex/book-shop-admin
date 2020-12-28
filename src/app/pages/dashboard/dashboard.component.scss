@@ -1,0 +1,17 @@
+.wrapper {
+  margin: 2rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 70px;
+
+  .image {
+    width: 160px;
+    height: 240px;
+
+    img {
+      width: 160px;
+      height: 240px;
+    }
+  }
+}

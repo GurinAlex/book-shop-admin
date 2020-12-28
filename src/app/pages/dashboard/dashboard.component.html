@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="wrapper">
+    <div *ngFor="let book of books" class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4 image">
+          <img [src]="book.img" alt="">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{book.title}}</h5>
+            <p class="card-text">{{book.author}}</p>
+            <p class="card-text">Цена: <small class="text-muted">{{book.price}}р</small></p>
+            <div class="actions">
+              <button type="button" class="btn btn-warning"
+                      [routerLink]="['/edit', book.id]">Посмотреть</button>
+              <button (click)="deleteBook(book.id)" type="button" class="btn btn-danger">Удалить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/" >AdminModule</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul *ngIf="authService.isAuthenticated()" class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"
+             routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Список товаров</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/create">Добавить товар</a>
+        </li>
+      </ul>
+      <div class="last-item">
+        <a class="nav-link" (click)="logout($event)">Выйти</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

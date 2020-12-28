@@ -1,0 +1,85 @@
+<div class="create">
+  <div class="form">
+    <div class="image-side">
+      <div class="image-bar"></div>
+      <img [src]="imageURL">
+      <!--      <input type="file" (change)="onSelectFile($event)" class="form-control" id="inputGroupFile01">-->
+      <div class="input-group mb-3">
+        <input (change)="onSelectFile($event)" type="file" class="form-control" id="inputGroupFile02">
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" [style]="{width: 'uploadPercent | async'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+
+    </div>
+    <div class="content-side">
+      <form *ngIf="form" [formGroup]="form" (submit)="submit()">
+        <div class="mb-3">
+          <label for="genre" class="form-label">Жанр</label>
+          <input type="text" formControlName="genre" class="form-control" id="genre">
+        </div>
+
+        <div class="mb-3">
+          <label for="title" class="form-label">Название</label>
+          <input type="text" formControlName="title" class="form-control" id="title">
+        </div>
+
+        <div class="mb-3">
+          <label for="author" class="form-label">Автор</label>
+          <input type="text" formControlName="author" class="form-control" id="author">
+        </div>
+
+        <div class="mb-3">
+          <label for="translator" class="form-label">Переводчик</label>
+          <input type="text" formControlName="translator" class="form-control" id="translator">
+        </div>
+
+        <div class="mb-3">
+          <label for="editorialOffice" class="form-label">Редакция</label>
+          <input type="text" formControlName="editorialOffice" class="form-control" id="editorialOffice">
+        </div>
+
+        <div class="mb-3">
+          <label for="publishingHouse" class="form-label">Издательство</label>
+          <input type="text" formControlName="publishingHouse" class="form-control" id="publishingHouse">
+        </div>
+
+        <div class="mb-3">
+          <label for="yearPublish" class="form-label">Год публикации</label>
+          <input type="number" formControlName="yearPublish" class="form-control" id="yearPublish">
+        </div>
+
+        <div class="mb-3">
+          <label for="series" class="form-label">Серия</label>
+          <input type="text" formControlName="series" class="form-control" id="series">
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Цена</label>
+          <input type="text" formControlName="price" class="form-control" id="price">
+        </div>
+
+        <div class="mb-3 form-check">
+          <input [checked]="form.value.discountIsActive" formControlName="discountIsActive" type="checkbox" class="form-check-input" id="exampleCheck12">
+          <label class="form-check-label" for="exampleCheck12">Скидка</label>
+        </div>
+
+        <label for="customRange3" class="form-label">Размер скидки: {{form.value.discount}}%</label>
+        <input formControlName="discount" type="range" class="form-range"
+               min="1" max="100" step="1" id="customRange3">
+
+        <div class="mb-3 form-check">
+          <input formControlName="isBestseller" type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Бестселлер</label>
+        </div>
+        <div class="mb-3">
+          <label for="annotate" class="form-label">Описание</label>
+          <textarea type="text" rows="4" formControlName="annotate" class="form-control" id="annotate"></textarea>
+        </div>
+
+        <button [disabled]="!form.valid" type="submit" class="btn btn-primary">Редактировать</button>
+      </form>
+    </div>
+  </div>
+</div>
