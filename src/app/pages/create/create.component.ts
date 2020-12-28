@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Book } from '../../shared/interfaces';
 import { BookService } from '../../shared/services/book.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -39,6 +40,7 @@ export class CreateComponent implements OnInit {
     private storage: AngularFireStorage,
     private fb: FormBuilder,
     private bookService: BookService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -99,9 +101,9 @@ export class CreateComponent implements OnInit {
 
     this.bookService.addNewBook(book).subscribe(() => {
       this.form.reset();
-
       this.imagePreview = null;
       this.imageURL = null;
+      this.router.navigateByUrl('/');
     });
   }
 }
